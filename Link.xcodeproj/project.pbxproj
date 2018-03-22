@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391C2F3720634F040020D966 /* MapWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C2F3620634F040020D966 /* MapWrapper.swift */; };
+		391C2F3920634F7D0020D966 /* FilterWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C2F3820634F7D0020D966 /* FilterWrapper.swift */; };
+		391C2F3B206350530020D966 /* MergeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391C2F3A206350530020D966 /* MergeWrapper.swift */; };
 		393DFA71205F9FD90074E555 /* UILabel+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DFA70205F9FD90074E555 /* UILabel+Bindings.swift */; };
 		3991B796205F8FF400A872AE /* Link.h in Headers */ = {isa = PBXBuildFile; fileRef = 3991B794205F8FF400A872AE /* Link.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3991B79D205F900600A872AE /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3991B79C205F900600A872AE /* Operators.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391C2F3620634F040020D966 /* MapWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWrapper.swift; sourceTree = "<group>"; };
+		391C2F3820634F7D0020D966 /* FilterWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterWrapper.swift; sourceTree = "<group>"; };
+		391C2F3A206350530020D966 /* MergeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeWrapper.swift; sourceTree = "<group>"; };
 		393DFA70205F9FD90074E555 /* UILabel+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Bindings.swift"; sourceTree = "<group>"; };
 		3991B791205F8FF400A872AE /* Link.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Link.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3991B794205F8FF400A872AE /* Link.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Link.h; sourceTree = "<group>"; };
@@ -65,6 +71,9 @@
 				3991B7A0205F905700A872AE /* Observable.swift */,
 				3991B7A2205F90B500A872AE /* Observer.swift */,
 				3991B7A4205F910B00A872AE /* Wrapper.swift */,
+				391C2F3620634F040020D966 /* MapWrapper.swift */,
+				391C2F3820634F7D0020D966 /* FilterWrapper.swift */,
+				391C2F3A206350530020D966 /* MergeWrapper.swift */,
 				393DFA70205F9FD90074E555 /* UILabel+Bindings.swift */,
 			);
 			path = Link;
@@ -153,8 +162,11 @@
 				3991B79D205F900600A872AE /* Operators.swift in Sources */,
 				3991B7A5205F910B00A872AE /* Wrapper.swift in Sources */,
 				3991B7A3205F90B500A872AE /* Observer.swift in Sources */,
+				391C2F3720634F040020D966 /* MapWrapper.swift in Sources */,
 				3991B7A1205F905700A872AE /* Observable.swift in Sources */,
+				391C2F3920634F7D0020D966 /* FilterWrapper.swift in Sources */,
 				393DFA71205F9FD90074E555 /* UILabel+Bindings.swift in Sources */,
+				391C2F3B206350530020D966 /* MergeWrapper.swift in Sources */,
 				3991B79F205F902000A872AE /* Signal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
