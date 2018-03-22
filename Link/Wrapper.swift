@@ -8,7 +8,7 @@ protocol Wrapper {
     associatedtype Output
     associatedtype Input
     
-    var wrapped: Signal<Output>? { get set }
+    var wrapped: Linker<Output>? { get set }
     func send(_ value: Input)
 }
 

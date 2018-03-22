@@ -9,7 +9,7 @@
 import Foundation
 
 struct MapWrapper<A, B>: Wrapper, AnyWrapper {
-    var wrapped: Signal<B>?
+    var wrapped: Linker<B>?
     private let mapping: (A) -> B
     
     init(mapping: @escaping (A) -> B) {

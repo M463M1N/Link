@@ -9,7 +9,7 @@
 import Foundation
 
 struct FilterWrapper<A>: Wrapper, AnyWrapper {
-    var wrapped: Signal<A>?
+    var wrapped: Linker<A>?
     private let condition: (A) -> Bool
     
     init(condition: @escaping (A) -> Bool) {

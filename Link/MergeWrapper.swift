@@ -8,11 +8,11 @@
 
 import Foundation
 final class MergeWrapper<A, B>: Wrapper, AnyWrapper {
-    var wrapped: Signal<(A, B)>?
-    private weak var parentA: Signal<A>?
-    private weak var parentB: Signal<B>?
+    var wrapped: Linker<(A, B)>?
+    private weak var parentA: Linker<A>?
+    private weak var parentB: Linker<B>?
     
-    init(_ a: Signal<A>, _ b: Signal<B>) {
+    init(_ a: Linker<A>, _ b: Linker<B>) {
         parentA = a
         parentB = b
     }
@@ -20,7 +20,6 @@ final class MergeWrapper<A, B>: Wrapper, AnyWrapper {
     func _send(_ value: B) {
         guard let otherValue = parentA?.last else { return }
         let merge = (otherValue, value)
-        
         wrapped?.send(merge)
     }
     

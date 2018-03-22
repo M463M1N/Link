@@ -1,6 +1,6 @@
 import Foundation
 
-public final class Signal<T>: Observable {
+public final class Linker<T>: Observable {
     typealias Value = T
     
     internal var observers: [Observer<T>] = []
@@ -18,12 +18,14 @@ public final class Signal<T>: Observable {
         }
     }
     
+    //MARK: - Initialize Methods
     public init() {}
     
     public init(_ initialValue: T) {
         stream.append(initialValue)
     }
     
+    //MARK: - Basic Methods
     func bind(to observer: Observer<T>) {
         subscribe(observer)
     }
@@ -32,7 +34,7 @@ public final class Signal<T>: Observable {
         stream.append(value)
     }
     
-    func bind(to signal: Signal<T>) {
+    func bind(to signal: Linker<T>) {
         let ob = Observer<T> { [weak signal] value in
             signal?.send(value)
         }
@@ -56,4 +58,31 @@ public final class Signal<T>: Observable {
         if let value = last { wrapper.send(value) }
     }
     
+    //MARK: - Higher Order Functions
+    public func map<A>(_ f: @escaping (T) -> A) -> Linker<A> {
+        let newLinker = Linker<A>()
+        var wrapper = MapWrapper(mapping: f)
+        wrapper.wrapped = newLinker
+        subscribe(wrapper)
+        return newLinker
+    }
+    
+    public func filter(_ f: @escaping (T) -> Bool) -> Linker<T> {
+        let newLinker = Linker<T>()
+        var wrapper = FilterWrapper(condition: f)
+        wrapper.wrapped = newLinker
+        subscribe(wrapper)
+        return newLinker
+    }
+    
+    public func merge<A>(with other: Linker<A>) -> Linker<(T, A)> {
+        let newLinker = Linker<(T, A)>()
+        let wrapper = MergeWrapper(self, other)
+        wrapper.wrapped = newLinker
+        other.onNext { [weak wrapper](value) in
+            wrapper?._send(value)
+        }
+        subscribe(wrapper)
+        return newLinker
+    }
 }
